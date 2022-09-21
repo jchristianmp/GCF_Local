@@ -78,7 +78,25 @@ with open('t.json', 'rb') as f:
 
 
 
+#bucket = storage_client.bucket('prueba')
+bucket = storage_client.create_bucket('prueba1')
+bucket.location = 'json_local_f'
+bucket.create()
+
+bucket = storage_client.bucket('prueba_repo/prueba2')
+#bucket.storage_class = "Standard"
+new_bucket = storage_client.create_bucket(bucket, location="us")
+ 
+
+# Crear carpeta dentro de un bucket 
+bucket = storage_client.get_bucket('prueba_repo')
+blob = bucket.blob('carpeta')
+
+blob.upload_from_string('', content_type='application/x-www-form-urlencoded;charset=UTF-8')
+
 """
+
+
 
 Usuario='TMPacasMayo'
 Patente='0'
